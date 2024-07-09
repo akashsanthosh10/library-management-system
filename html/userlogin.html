@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="../css/userlogin.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Library User Dashboard</h1>
+    <div class="nav">
+      <a href="#" onclick="showHome()">Home</a>
+      <a href="#" onclick="showAllBooks()">All Books</a>
+      <a href="#" onclick="showCurrentlyIssuedBooks()">Issued Books</a>
+      <a href="#" onclick="showHistory()">History</a>  
+      <a href="#" onclick="showWishlist()">Wishlist</a> 
+      <a href="#" onclick="logout()">Logout</a>
+      
+    </div>
+    <div id="homePage">
+      <h1>Welcome, <span id="Username"></span></h1>
+      <p>Email: <span id="UserEmail"></span></p>
+      <p>User ID: <span id="UserID"></span></p>
+    </div>
+
+    <div id="allBooksPage" style="display: none;">
+        <h1>All Books</h1>
+        <div id="searchContainer">
+            <label for="searchInput">Search:</label>
+            <input type="text" id="searchInput" placeholder="Enter book name">
+            <button onclick="searchBooks()" id="searchButton">Search</button>
+        </div>
+        <table id="bookList">
+          <thead>
+            <tr>
+              <th>Book ID</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Publish Year</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookListBody"></tbody>
+        </table>
+    </div>
+    
+    <div id="wishlist" style="display: none;">
+      <h1>Wishlist</h1>
+      <table id="wishList">
+        <thead>
+          <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publish Year</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="wishListBody"></tbody>
+      </table>
+  </div>
+    <div id="history" style="display: none;">
+      <h1>History</h1>
+      <table id="historylist">
+        <thead>
+          <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="issueReturnRequestsPage" style="display: none;">
+      <h1>Issue/Return Requests</h1>
+      <form id="issueBookForm" action="../php/issue_book.php" method="POST">
+        <div class="form-group">
+          <input type="text" name="userid" placeholder="User ID">
+        </div>
+        <div class="form-group">
+          <input type="text" name="bookid" placeholder="Book ID">
+        </div>
+        <div class="form-group">
+          <input type="text" name="issuedate" placeholder="Issue Date" class="datepicker">
+        </div>
+        <div class="form-group">
+          <input type="text" name="duedate" placeholder="Due Date" class="datepicker">
+        </div>     
+        <div class="form-group">
+          <button id="issueBookBtn" type="submit">Issue Book</button>
+        </div>
+      </form>
+    </div>
+  <div id="issueBookMessage" style="display: none;"></div>
+    <div id="currentlyIssuedBooksPage" style="display: none;">
+      <h1>Currently Issued Books</h1>
+      <table id="currentlyIssuedBooksTable">
+        <thead>
+          <tr>
+            <th>Issue ID</th>
+            <th>Book Name</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>    
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically added here -->
+        </tbody>
+      </table>
+      <div id="errorContainer" style="display: none; color: red;"></div>
+
+    </div>
+  </div>
+  <div id="wishlist" style="display: none;">
+    <h1>Wishlist</h1>
+    <table id="wishList">
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Book Name</th>
+          <th>Author</th>
+          <th>Publish Year</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="wishListBody"></tbody>
+    </table>
+</div>
+</div>
+  <script src="../javascript/userlogin.js"></script>
+</body>
+
+</html>
