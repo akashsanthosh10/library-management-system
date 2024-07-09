@@ -3,6 +3,40 @@
 The Library Management System is a comprehensive web-based application designed to
 facilitate efficient management of library resources and streamline library operations. The system aims to provide librarians and library administrators with an intuitive and user-friendly interface for effectively managing user records, book catalog, and issue/return requests.The implementation is based on HTML, CSS, and JavaScript.
 
+## Installation
+
+1. **Download and Install XAMPP**
+   - Download XAMPP from [Apache Friends](https://www.apachefriends.org/index.html).
+   - Follow the installation instructions for your operating system.
+
+2. **Start Apache and MySQL**
+   - Open XAMPP Control Panel.
+   - Start the Apache and MySQL services.
+
+3. **Clone the Repository**
+   - Open your terminal or command prompt.
+   - Navigate to the `htdocs` directory in your XAMPP installation. For example:
+     ```bash
+     cd /path/to/xampp/htdocs
+     ```
+   - Clone your project repository:
+     ```bash
+     git clone https://github.com/your-username/your-repository.git
+     ```
+
+4. **Import the Database**
+   - Open your web browser and go to `http://localhost/phpmyadmin`.
+   - Create a new database.
+   - Import the provided SQL file into this database.
+
+5. **Configure the Project**
+   - Navigate to your project directory within `htdocs`.
+   - Open the configuration file (if any) and update the database credentials.
+
+6. **Run the Project**
+   - Open your web browser and go to `http://localhost/your-repository`.
+
+You're all set! Your project should now be up and running on your local server.
 
 ## Screenshots
 ![Screenshot (8)](https://github.com/akashsanthosh10/library-management-system/assets/175042201/3eb07337-2fb0-4447-8614-ff0a7f02954c)
